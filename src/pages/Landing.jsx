@@ -1,8 +1,11 @@
 import Header from '@/components/Header'
 import Hero from '@/components/Hero'
-import CloudPlatforms from '@/components/CloudPlatforms'
+import ConnectedClouds from '@/components/ConnectedClouds'
+import CostBreakdown from '@/components/CostBreakdown'
+import ResourceInventory from '@/components/ResourceInventory'
 import FeaturesBento from '@/components/FeaturesBento'
-import IncidentWorkflow from '@/components/IncidentWorkflow'
+import SpendAnomaly from '@/components/SpendAnomaly'
+import SavingsQueue from '@/components/SavingsQueue'
 import FinalCta from '@/components/FinalCta'
 import FooterExpanded from '@/components/FooterExpanded'
 import SiteFooter from '@/components/SiteFooter'
@@ -14,9 +17,12 @@ export default function Landing() {
       <main className="min-h-screen w-full bg-surface pt-16">
         <div className="flex w-full flex-col">
           <Hero />
-          <CloudPlatforms />
+          <ConnectedClouds />
+          <CostBreakdown />
+          <ResourceInventory />
           <FeaturesBento />
-          <IncidentWorkflow />
+          <SpendAnomaly />
+          <SavingsQueue />
           <FinalCta />
           <FooterExpanded />
         </div>

@@ -79,6 +79,11 @@
   .gutter-x {
     @apply px-margin;
   }
+
+  /* Data table headers — sticky, per the design system's data-table spec */
+  .data-grid {
+    @apply font-body-md text-body-md;
+  }
 }
 
 /* Monospace numerals for live-updating telemetry scalars */

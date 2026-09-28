@@ -1,5 +1,6 @@
+import { Link } from 'react-router-dom'
 import BrandLogo from './BrandLogo'
-import { footerColumns } from '@/data/content'
+import { footerColumns } from '@/data/finops'
 
 const legalLinks = ['Terms of Service', 'Privacy Policy', 'Cookie Preferences']
 
@@ -13,15 +14,18 @@ export default function FooterExpanded() {
             <div className="flex items-center gap-space-sm">
               <BrandLogo className="h-7 w-7" />
               <span className="font-headline-sm text-headline-sm tracking-tight text-primary">CloudPulse</span>
+              <span className="rounded-full border border-primary-container/25 bg-primary-container/10 px-2 py-0.5 font-label-caps text-label-caps uppercase tracking-wider text-primary">
+                FinOps
+              </span>
             </div>
             <p className="max-w-sm font-body-sm text-body-sm text-on-surface-variant">
-              High-performance enterprise observability. Precision instrumentation for Kubernetes,
-              serverless runtimes, and hybrid multi-cloud topologies.
+              Multi-cloud cost intelligence and resource governance. Read-only ingestion for AWS, Azure and
+              Google Cloud — allocation, forecasting and continuous optimisation in one place.
             </p>
             <div className="inline-flex w-fit items-center gap-space-xs rounded-full bg-surface-container-high px-space-sm py-1">
-              <span className="h-2 w-2 animate-pulse rounded-full bg-primary-container" />
+              <span className="h-2 w-2 animate-pulse rounded-full bg-status-ok" />
               <span className="font-label-caps text-label-caps uppercase text-on-surface">
-                All Systems Operational 99.99%
+                Ingestion Healthy · 99.99% uptime
               </span>
             </div>
           </div>
@@ -31,20 +35,19 @@ export default function FooterExpanded() {
               <span className="font-title-md text-title-md text-on-surface">{col.title}</span>
               <div className="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant">
                 {col.links.map((link) => (
-                  <a key={link} href="#top" className="transition-colors hover:text-primary-container">
+                  <Link key={link} to="/dashboard" className="transition-colors hover:text-primary-container">
                     {link}
-                  </a>
+                  </Link>
                 ))}
               </div>
             </nav>
           ))}
         </div>
 
-        {/* Legal sub-strip */}
         <div className="flex flex-col items-center justify-between gap-space-sm pt-space-md font-body-sm text-body-sm text-on-surface-variant md:flex-row">
           <span>
-            © {new Date().getFullYear()} CloudPulse Platform Inc. Precision instrumentation for hyperscale
-            enterprise multi-cloud.
+            © {new Date().getFullYear()} CloudPulse Platform Inc. Multi-cloud cost management for
+            hyperscale infrastructure.
           </span>
           <div className="flex items-center gap-space-md">
             {legalLinks.map((link) => (

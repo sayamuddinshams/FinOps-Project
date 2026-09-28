@@ -1,6 +1,7 @@
+import { Link } from 'react-router-dom'
 import BrandLogo from './BrandLogo'
 
-const links = ['Privacy Policy', 'Security SLAs', 'Telemetry APIs']
+const links = ['Privacy Policy', 'Security', 'Billing API']
 
 export default function SiteFooter() {
   return (
@@ -8,16 +9,16 @@ export default function SiteFooter() {
       <div className="flex w-full flex-col items-center justify-between gap-space-md px-margin text-on-surface-variant md:flex-row">
         <div className="flex items-center gap-space-sm">
           <BrandLogo className="h-6 w-6" imgClassName="opacity-70" />
-          <span className="font-headline-sm text-title-md text-on-surface">CloudPulse Telemetry Platform</span>
+          <span className="font-headline-sm text-title-md text-on-surface">CloudPulse FinOps</span>
         </div>
         <p className="font-body-sm text-body-sm">
-          © {new Date().getFullYear()} CloudPulse Inc. Enterprise Multi-Cloud Observability Architecture.
+          © {new Date().getFullYear()} CloudPulse Inc. Multi-cloud cost &amp; resource intelligence.
         </p>
         <div className="flex items-center gap-space-lg font-body-sm text-body-sm">
           {links.map((link) => (
-            <a key={link} href="#top" className="text-on-surface-variant transition-colors hover:text-on-surface">
+            <Link key={link} to="/dashboard" className="text-on-surface-variant transition-colors hover:text-on-surface">
               {link}
-            </a>
+            </Link>
           ))}
         </div>
       </div>
