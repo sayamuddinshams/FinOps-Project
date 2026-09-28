@@ -14,13 +14,15 @@ export default function Auth({ initialMode = 'signin' }) {
   const isSignIn = mode === 'signin'
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-surface p-space-md font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container">
-      {/* Ambient atmospheric glows */}
-      <div className="pointer-events-none absolute -top-32 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-primary-container/10 blur-3xl" />
-      <div className="pointer-events-none absolute -bottom-24 right-1/4 h-80 w-80 rounded-full bg-secondary-container/20 blur-3xl" />
+    <div className="flex min-h-screen justify-center bg-surface p-space-md font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container">
+      {/* Ambient atmospheric glows — fixed so they never affect document height */}
+      <div className="pointer-events-none fixed -top-32 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-primary-container/10 blur-3xl" />
+      <div className="pointer-events-none fixed -bottom-24 right-1/4 h-80 w-80 rounded-full bg-secondary-container/20 blur-3xl" />
 
-      <main className="relative flex w-full items-center justify-center">
-        <div className="relative z-10 flex w-full max-w-xl flex-col items-center justify-center rounded-xl bg-surface-container/80 p-space-lg shadow-2xl backdrop-blur-xl sm:p-space-xl">
+      {/* my-auto keeps the card centred when it fits, and scrollable from the
+          top when the taller sign-up form exceeds the viewport. */}
+      <main className="my-auto flex w-full flex-col items-center justify-center p-space-md sm:p-space-lg">
+        <div className="relative z-10 flex w-full max-w-xl flex-col rounded-xl bg-surface-container/80 p-space-lg shadow-2xl backdrop-blur-xl sm:p-space-xl">
           {/* Brand header */}
           <div className="flex items-center justify-between pb-space-lg">
             <div className="flex items-center gap-space-sm">
@@ -96,7 +98,7 @@ export default function Auth({ initialMode = 'signin' }) {
         </div>
 
         {/* Assurance strip */}
-        <div className="mt-space-lg flex flex-wrap items-center justify-center gap-space-lg text-label-md text-on-surface-variant/70">
+        <div className="mt-space-lg flex w-full flex-wrap items-center justify-center gap-space-lg text-center text-label-md text-on-surface-variant/70">
           <span className="flex items-center gap-1.5">
             <MaterialSymbol name="dns" className="text-code-sm" />
             Multi-Cloud Telemetry Ready

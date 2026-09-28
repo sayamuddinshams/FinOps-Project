@@ -52,6 +52,33 @@ const checks = [
   ['a11y: both tabs expose aria-selected', (signIn.html.match(/aria-selected/g) || []).length === 2],
   ['a11y: back-to-site link', signIn.html.includes('Back to site')],
   ['brand: CloudPulse + tagline', signIn.html.includes('Enterprise Observability')],
+
+  // --- Centering regression -------------------------------------------------
+  // The card and the assurance strip must be siblings in a COLUMN flex
+  // container. If they become children of a row container they render
+  // side-by-side and the card drifts off-centre.
+  ['layout: main is a column flex', /<main class="my-auto flex w-full flex-col items-center/.test(signIn.html)],
+  ['layout: card is max-w-xl', signIn.html.includes('max-w-xl')],
+  [
+    'layout: card and strip share the same column parent',
+    (() => {
+      // index of the card div, index of the assurance strip — both after
+      // <main ...> and before its closing tag
+      const mainStart = signIn.html.indexOf('<main')
+      const cardIdx = signIn.html.indexOf('max-w-xl', mainStart)
+      const stripIdx = signIn.html.indexOf('Back to site', mainStart)
+      return cardIdx > mainStart && stripIdx > cardIdx
+    })(),
+  ],
+  [
+    'layout: safe centering (my-auto, not items-center on the shell)',
+    /<div class="flex min-h-screen justify-center/.test(signIn.html) &&
+      /<main class="my-auto flex w-full flex-col/.test(signIn.html),
+  ],
+  [
+    'layout: glows are fixed so they cannot grow the page',
+    (signIn.html.match(/class="pointer-events-none fixed/g) || []).length === 2,
+  ],
 ]
 
 let failed = 0
