@@ -1,8 +1,9 @@
+import { Link } from 'react-router-dom'
 import BrandLogo from './BrandLogo'
 
 const links = [
-  { label: 'View Our Dashboard', href: '#dashboard' },
-  { label: 'Login / Sign Up', href: '#get-started' },
+  { label: 'View Our Dashboard', href: '/#dashboard' },
+  { label: 'Login / Sign Up', to: '/login' },
 ]
 
 export default function Header() {
@@ -28,12 +29,12 @@ export default function Header() {
             {links[0].label}
           </a>
 
-          <a
-            href={links[1].href}
+          <Link
+            to={links[1].to}
             className="inline-flex items-center justify-center rounded-lg bg-surface-container-high px-space-md py-space-sm font-title-md text-title-md text-on-surface transition-colors hover:bg-surface-bright"
           >
             {links[1].label}
-          </a>
+          </Link>
         </div>
       </div>
     </header>

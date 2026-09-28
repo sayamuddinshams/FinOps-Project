@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import MaterialSymbol from './MaterialSymbol'
 
 const guarantees = [
@@ -31,13 +32,13 @@ export default function FinalCta() {
             <MaterialSymbol name="play_arrow" className="text-headline-sm" />
             <span>View Our Dashboard</span>
           </a>
-          <a
-            href="#get-started"
+          <Link
+            to="/signup"
             className="inline-flex items-center justify-center gap-space-xs rounded-lg bg-surface-container-highest px-space-xl py-space-md font-title-md text-title-md text-on-surface shadow-sm transition-all hover:bg-surface-bright"
           >
             <span>Get Started Free</span>
             <MaterialSymbol name="arrow_forward" className="text-headline-sm" />
-          </a>
+          </Link>
         </div>
 
         <div className="relative z-10 flex flex-wrap items-center justify-center gap-space-md pt-space-xs font-body-sm text-body-sm text-on-surface-variant">

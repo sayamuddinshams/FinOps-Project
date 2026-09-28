@@ -61,6 +61,11 @@
     @apply bg-surface-bright;
   }
 
+  /* Auth form submit — full-width cyan CTA */
+  .btn-auth-primary {
+    @apply flex w-full items-center justify-center gap-2 rounded-lg bg-primary-container px-space-md py-3 font-headline-sm text-headline-sm text-on-primary shadow-md transition duration-150 hover:bg-surface-tint active:scale-[0.99];
+  }
+
   /* Status pill */
   .chip {
     @apply inline-flex items-center rounded-full px-space-xs font-label-caps text-label-caps uppercase tracking-wider;

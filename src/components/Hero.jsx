@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import MaterialSymbol from './MaterialSymbol'
 import TopologyMesh from './TopologyMesh'
 import { consoleStats, heroStats } from '@/data/content'
@@ -31,10 +32,10 @@ export default function Hero() {
               <span>View Our Dashboard</span>
               <span className="absolute -inset-0.5 -z-10 rounded-lg bg-primary-container opacity-40 blur-sm transition duration-300 group-hover:opacity-75" />
             </a>
-            <a href="#get-started" className="btn-secondary">
+            <Link to="/login" className="btn-secondary">
               <MaterialSymbol name="login" className="text-headline-sm" />
               <span>Login / Sign Up</span>
-            </a>
+            </Link>
           </div>
 
           {/* Trust badges & metrics strip */}
